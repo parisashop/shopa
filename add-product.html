@@ -5,64 +5,45 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>افزودن محصول | پنل فروشنده</title>
+    <title>افزودن محصول</title>
 
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
 
-    <!-- فونت آیکون -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
-
-    <!-- CSS اصلی -->
     <link rel="stylesheet" href="style.css">
-
 
     <!-- Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 </head>
 
-
 <body>
-
-
-    <!-- =========================
-         صفحه افزودن محصول
-    ========================== -->
 
     <section class="admin-page">
 
         <div class="admin-box">
 
-
-            <!-- عنوان -->
-
             <div class="admin-header">
 
                 <a href="index.html">
-
                     <i class="fa-solid fa-arrow-right"></i>
-
                     بازگشت به فروشگاه
-
                 </a>
 
-
                 <h1>
-
                     <i class="fa-solid fa-box icon-red"></i>
-
                     افزودن محصول جدید
-
                 </h1>
 
             </div>
 
-
-            <!-- فرم -->
 
             <form id="product-form">
 
@@ -70,13 +51,9 @@
                 <!-- نام محصول -->
 
                 <label for="title">
-
                     <i class="fa-solid fa-tag"></i>
-
                     نام محصول
-
                 </label>
-
 
                 <input
                     type="text"
@@ -86,43 +63,29 @@
                 >
 
 
-
                 <!-- دسته‌بندی -->
 
                 <label for="category">
-
                     <i class="fa-solid fa-layer-group"></i>
-
                     دسته‌بندی
-
                 </label>
-
 
                 <select
                     id="category"
                     required
                 >
-
                     <option value="">
-
                         در حال دریافت دسته‌بندی...
-
                     </option>
-
                 </select>
-
 
 
                 <!-- قیمت -->
 
                 <label for="price">
-
                     <i class="fa-solid fa-money-bill"></i>
-
                     قیمت (تومان)
-
                 </label>
-
 
                 <input
                     type="number"
@@ -133,17 +96,12 @@
                 >
 
 
-
                 <!-- موجودی -->
 
                 <label for="stock">
-
-                    <i class="fa-solid fa-cubes"></i>
-
+                    <i class="fa-solid fa-boxes-stacked"></i>
                     تعداد موجودی
-
                 </label>
-
 
                 <input
                     type="number"
@@ -154,35 +112,25 @@
                 >
 
 
-
                 <!-- توضیحات -->
 
                 <label for="description">
-
                     <i class="fa-solid fa-align-right"></i>
-
                     توضیحات محصول
-
                 </label>
-
 
                 <textarea
                     id="description"
-                    placeholder="توضیحات کامل محصول را وارد کنید..."
+                    placeholder="توضیحات محصول..."
                 ></textarea>
-
 
 
                 <!-- تصاویر -->
 
                 <label for="images">
-
                     <i class="fa-solid fa-images"></i>
-
                     تصاویر محصول
-
                 </label>
-
 
                 <input
                     type="file"
@@ -192,22 +140,17 @@
                     required
                 >
 
-
                 <p class="help-text">
-
-                    می‌توانید چند تصویر محصول را انتخاب کنید.
-
+                    می‌توانید چند تصویر انتخاب کنید.
                 </p>
 
 
-
-                <!-- پیش‌نمایش تصاویر -->
+                <!-- پیش‌نمایش -->
 
                 <div
                     id="image-preview"
                     class="image-preview"
                 ></div>
-
 
 
                 <!-- دکمه ثبت -->
@@ -216,19 +159,14 @@
                     type="submit"
                     id="submit-button"
                 >
-
                     <i class="fa-solid fa-plus"></i>
-
                     ثبت محصول
-
                 </button>
-
 
 
                 <!-- پیام -->
 
                 <p id="message"></p>
-
 
             </form>
 
@@ -237,10 +175,9 @@
     </section>
 
 
-    <!-- فایل JavaScript -->
+    <!-- JavaScript -->
 
     <script src="add-product.js"></script>
-
 
 </body>
 
