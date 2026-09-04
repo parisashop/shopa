@@ -533,3 +533,93 @@ footer {
 
     background: #ffd43b10;
 }
+/* =========================
+   وضعیت محصولات
+========================= */
+
+#products-loading {
+    text-align: center;
+    padding: 50px 20px;
+    color: #666;
+    font-size: 16px;
+}
+
+#products-loading i {
+    color: #e60023;
+    margin-left: 8px;
+    font-size: 22px;
+}
+
+
+#products-error {
+    text-align: center;
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    color: #e60023;
+}
+
+
+#products-error i {
+    margin-left: 8px;
+}
+
+
+#no-products {
+    text-align: center;
+    background: white;
+    padding: 60px 20px;
+    border-radius: 15px;
+    color: #777;
+}
+
+
+#no-products i {
+    font-size: 50px;
+    color: #e60023;
+    margin-bottom: 15px;
+}
+
+
+#no-products p {
+    font-size: 16px;
+}
+
+
+/* =========================
+   وضعیت دکمه ناموجود
+========================= */
+
+.add-to-cart:disabled {
+    opacity: 0.8;
+}
+
+
+/* =========================
+   موجودی محصول
+========================= */
+
+.product-price small {
+    font-size: 12px;
+}
+
+
+/* =========================
+   موبایل
+========================= */
+
+@media (max-width: 500px) {
+
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .product-card {
+        border-radius: 12px;
+    }
+
+    .product-price strong {
+        font-size: 13px;
+    }
+
+}
