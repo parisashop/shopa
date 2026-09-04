@@ -1,46 +1,340 @@
-const SUPABASE_URL = "https://ugrtomjjslqwkijieovf.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVncnRvbWpqc2xxd2tpamllb3ZmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg1Mzk4ODMsImV4cCI6MjEwNDExNTg4M30.77C3vnS5BO_YkHl1ppnbII0zy-jOjaUWq_HAMJnRLK4";
+/* =================================
+   تنظیمات Supabase
+================================= */
 
-const supabase = window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_ANON_KEY
+const SUPABASE_URL = "YOUR_SUPABASE_URL";
+
+const SUPABASE_ANON_KEY =
+    "YOUR_SUPABASE_ANON_KEY";
+
+
+/* =================================
+   کنسول داخل سایت
+================================= */
+
+const consoleOutput =
+    document.getElementById(
+        "console-output"
+    );
+
+
+function addToSiteConsole(
+    type,
+    ...values
+) {
+
+    if (!consoleOutput) return;
+
+
+    const line =
+        document.createElement("div");
+
+
+    line.className =
+        "console-line " + type;
+
+
+    const time =
+        new Date()
+            .toLocaleTimeString(
+                "fa-IR"
+            );
+
+
+    let text =
+        "[" + time + "] ";
+
+
+    values.forEach(
+        function (value) {
+
+            if (
+                typeof value === "object"
+            ) {
+
+                try {
+
+                    text +=
+                        JSON.stringify(
+                            value,
+                            null,
+                            2
+                        ) + " ";
+
+                }
+                catch {
+
+                    text +=
+                        String(value) + " ";
+
+                }
+
+            }
+            else {
+
+                text +=
+                    String(value) + " ";
+
+            }
+
+        }
+    );
+
+
+    line.textContent =
+        text;
+
+
+    consoleOutput.appendChild(
+        line
+    );
+
+
+    consoleOutput.scrollTop =
+        consoleOutput.scrollHeight;
+
+}
+
+
+/* گرفتن log */
+
+const originalLog =
+    console.log;
+
+
+console.log =
+    function (...args) {
+
+        originalLog(
+            ...args
+        );
+
+        addToSiteConsole(
+            "log",
+            ...args
+        );
+
+    };
+
+
+/* گرفتن error */
+
+const originalError =
+    console.error;
+
+
+console.error =
+    function (...args) {
+
+        originalError(
+            ...args
+        );
+
+        addToSiteConsole(
+            "error",
+            ...args
+        );
+
+    };
+
+
+/* گرفتن warn */
+
+const originalWarn =
+    console.warn;
+
+
+console.warn =
+    function (...args) {
+
+        originalWarn(
+            ...args
+        );
+
+        addToSiteConsole(
+            "warning",
+            ...args
+        );
+
+    };
+
+
+/* پاک کردن */
+
+function clearSiteConsole() {
+
+    if (consoleOutput) {
+
+        consoleOutput.innerHTML =
+            "";
+
+    }
+
+}
+
+
+/* =================================
+   خطاهای JavaScript
+================================= */
+
+window.addEventListener(
+    "error",
+    function (event) {
+
+        console.error(
+            "JavaScript Error:",
+            event.message,
+            "در خط:",
+            event.lineno
+        );
+
+    }
 );
 
-const form = document.getElementById("product-form");
 
-const imagesInput = document.getElementById("images");
+window.addEventListener(
+    "unhandledrejection",
+    function (event) {
 
-const preview = document.getElementById("image-preview");
+        console.error(
+            "Promise Error:",
+            event.reason
+        );
 
-const message = document.getElementById("message");
+    }
+);
+
+
+/* =================================
+   بررسی Supabase
+================================= */
+
+console.log(
+    "شروع برنامه..."
+);
+
+
+console.log(
+    "Supabase URL:",
+    SUPABASE_URL
+);
+
+
+if (
+    !SUPABASE_URL ||
+    SUPABASE_URL.includes(
+        "YOUR_SUPABASE"
+    )
+) {
+
+    console.error(
+        "SUPABASE_URL تنظیم نشده است!"
+    );
+
+}
+
+
+if (
+    !SUPABASE_ANON_KEY ||
+    SUPABASE_ANON_KEY.includes(
+        "YOUR_SUPABASE"
+    )
+) {
+
+    console.error(
+        "SUPABASE_ANON_KEY تنظیم نشده است!"
+    );
+
+}
+
+
+/* =================================
+   اتصال Supabase
+================================= */
+
+let supabase;
+
+
+try {
+
+    supabase =
+        window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_ANON_KEY
+        );
+
+
+    console.log(
+        "اتصال Supabase ایجاد شد."
+    );
+
+}
+catch (error) {
+
+    console.error(
+        "خطا در ساخت اتصال Supabase:",
+        error
+    );
+
+}
+
+
+/* =================================
+   عناصر صفحه
+================================= */
+
+const form =
+    document.getElementById(
+        "product-form"
+    );
+
+const imagesInput =
+    document.getElementById(
+        "images"
+    );
+
+const preview =
+    document.getElementById(
+        "image-preview"
+    );
+
+const message =
+    document.getElementById(
+        "message"
+    );
 
 const submitButton =
-    document.getElementById("submit-button");
+    document.getElementById(
+        "submit-button"
+    );
+
+const categorySelect =
+    document.getElementById(
+        "category"
+    );
 
 
-/* =========================
+console.log(
+    "عناصر صفحه دریافت شدند."
+);
+
+
+/* =================================
    دریافت دسته‌بندی‌ها
-========================= */
+================================= */
 
 async function loadCategories() {
 
-    const categorySelect =
-        document.getElementById("category");
+    console.log(
+        "شروع دریافت دسته‌بندی‌ها..."
+    );
 
 
-    const { data, error } =
-        await supabase
-            .from("categories")
-            .select("*")
-            .order("name");
+    if (!categorySelect) {
 
-
-    if (error) {
-
-        categorySelect.innerHTML =
-            "<option>خطا در دریافت دسته‌بندی</option>";
-
-        console.error(error);
+        console.error(
+            "عنصر category پیدا نشد!"
+        );
 
         return;
 
@@ -48,351 +342,181 @@ async function loadCategories() {
 
 
     categorySelect.innerHTML =
-        '<option value="">انتخاب دسته‌بندی</option>';
+        '<option value="">در حال دریافت...</option>';
 
 
-    data.forEach(category => {
+    try {
 
-        const option =
-            document.createElement("option");
-
-
-        option.value = category.id;
-
-        option.textContent =
-            category.name;
+        console.log(
+            "ارسال درخواست به جدول categories..."
+        );
 
 
-        categorySelect.appendChild(option);
-
-    });
-
-}
-
-
-loadCategories();
-
-
-/* =========================
-   پیش‌نمایش تصاویر
-========================= */
-
-imagesInput.addEventListener(
-    "change",
-    function () {
-
-        preview.innerHTML = "";
-
-        const files =
-            Array.from(this.files);
+        const response =
+            await supabase
+                .from(
+                    "categories"
+                )
+                .select(
+                    "id, name"
+                )
+                .order(
+                    "name",
+                    {
+                        ascending: true
+                    }
+                );
 
 
-        files.forEach(file => {
-
-            const reader =
-                new FileReader();
-
-
-            reader.onload =
-                function (event) {
-
-                    const img =
-                        document.createElement("img");
+        console.log(
+            "پاسخ کامل Supabase:",
+            response
+        );
 
 
-                    img.src =
-                        event.target.result;
+        const data =
+            response.data;
 
 
-                    preview.appendChild(img);
-
-                };
-
-
-            reader.readAsDataURL(file);
-
-        });
-
-    }
-);
+        const error =
+            response.error;
 
 
-/* =========================
-   آپلود تصویر
-========================= */
+        if (error) {
 
-async function uploadImage(
-    file,
-    productId,
-    index
-) {
+            console.error(
+                "خطای Supabase:",
+                error
+            );
 
-    const fileExtension =
-        file.name
-            .split(".")
-            .pop()
-            .toLowerCase();
+            throw error;
+
+        }
 
 
-    const fileName =
-        `${productId}/${Date.now()}-${index}.${fileExtension}`;
+        console.log(
+            "دسته‌بندی‌های دریافت‌شده:",
+            data
+        );
 
 
-    const { error } =
-        await supabase
-            .storage
-            .from("product-images")
-            .upload(
-                fileName,
-                file,
-                {
-                    contentType:
-                        file.type,
+        categorySelect.innerHTML =
+            '<option value="">انتخاب دسته‌بندی</option>';
 
-                    upsert:
-                        false
-                }
+
+        if (
+            !data ||
+            data.length === 0
+        ) {
+
+            console.warn(
+                "هیچ دسته‌بندی پیدا نشد."
             );
 
 
-    if (error) {
+            categorySelect.innerHTML =
+                '<option value="">هیچ دسته‌بندی وجود ندارد</option>';
 
-        throw error;
-
-    }
-
-
-    const { data } =
-        supabase
-            .storage
-            .from("product-images")
-            .getPublicUrl(
-                fileName
-            );
-
-
-    return data.publicUrl;
-
-}
-
-
-/* =========================
-   ثبت محصول
-========================= */
-
-form.addEventListener(
-    "submit",
-    async function (event) {
-
-        event.preventDefault();
-
-
-        const title =
-            document
-                .getElementById("title")
-                .value
-                .trim();
-
-
-        const categoryId =
-            document
-                .getElementById("category")
-                .value;
-
-
-        const price =
-            Number(
-                document
-                    .getElementById("price")
-                    .value
-            );
-
-
-        const stock =
-            Number(
-                document
-                    .getElementById("stock")
-                    .value
-            );
-
-
-        const description =
-            document
-                .getElementById("description")
-                .value
-                .trim();
-
-
-        const files =
-            Array.from(
-                imagesInput.files
-            );
-
-
-        if (!files.length) {
-
-            showMessage(
-                "حداقل یک تصویر انتخاب کنید.",
-                "red"
-            );
 
             return;
 
         }
 
 
-        try {
+        data.forEach(
+            function (category) {
 
-            submitButton.disabled =
-                true;
-
-
-            submitButton.innerText =
-                "در حال ثبت...";
-
-
-            showMessage(
-                "در حال ثبت محصول...",
-                "#555"
-            );
-
-
-            /* ثبت محصول */
-
-            const {
-                data: product,
-                error: productError
-            } =
-                await supabase
-                    .from("products")
-                    .insert({
-                        title:
-                            title,
-
-                        description:
-                            description,
-
-                        price:
-                            price,
-
-                        stock:
-                            stock,
-
-                        category_id:
-                            categoryId
-                    })
-                    .select()
-                    .single();
-
-
-            if (productError) {
-
-                throw productError;
-
-            }
-
-
-            /* آپلود تصاویر */
-
-            for (
-                let i = 0;
-                i < files.length;
-                i++
-            ) {
-
-                const imageUrl =
-                    await uploadImage(
-                        files[i],
-                        product.id,
-                        i
+                const option =
+                    document.createElement(
+                        "option"
                     );
 
 
-                /* ثبت URL تصویر */
-
-                const {
-                    error: imageError
-                } =
-                    await supabase
-                        .from("product_images")
-                        .insert({
-
-                            product_id:
-                                product.id,
-
-                            image_url:
-                                imageUrl,
-
-                            sort_order:
-                                i
-
-                        });
+                option.value =
+                    category.id;
 
 
-                if (imageError) {
+                option.textContent =
+                    category.name;
 
-                    throw imageError;
 
-                }
+                categorySelect.appendChild(
+                    option
+                );
+
+
+                console.log(
+                    "دسته اضافه شد:",
+                    category.name
+                );
 
             }
+        );
 
 
-            showMessage(
-                "محصول با موفقیت ثبت شد 🎉",
-                "green"
-            );
-
-
-            form.reset();
-
-            preview.innerHTML = "";
-
-
-        }
-        catch (error) {
-
-            console.error(error);
-
-
-            showMessage(
-                "خطا: " +
-                error.message,
-                "red"
-            );
-
-        }
-        finally {
-
-            submitButton.disabled =
-                false;
-
-
-            submitButton.innerHTML =
-                `
-                <i class="fa-solid fa-plus"></i>
-                ثبت محصول
-                `;
-
-        }
+        console.log(
+            "دریافت دسته‌بندی‌ها با موفقیت تمام شد."
+        );
 
     }
-);
+    catch (error) {
+
+        console.error(
+            "خطای نهایی دریافت دسته‌بندی:",
+            error
+        );
 
 
-/* =========================
+        categorySelect.innerHTML =
+            '<option value="">خطا در دریافت دسته‌بندی</option>';
+
+
+        showMessage(
+            "خطا در دریافت دسته‌بندی: " +
+            error.message,
+            "red"
+        );
+
+    }
+
+}
+
+
+/* =================================
    نمایش پیام
-========================= */
+================================= */
 
 function showMessage(
     text,
     color
 ) {
 
+    if (!message) return;
+
+
     message.textContent =
         text;
+
 
     message.style.color =
         color;
 
+
+    console.log(
+        "پیام:",
+        text
+    );
+
 }
+
+
+/* =================================
+   شروع برنامه
+================================= */
+
+console.log(
+    "فراخوانی loadCategories..."
+);
+
+
+loadCategories();
