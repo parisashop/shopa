@@ -1,0 +1,430 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Tahoma, Arial, sans-serif;
+    background: #f5f5f5;
+    color: #222;
+}
+
+a {
+    text-decoration: none;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+/* =========================
+   هدر
+========================= */
+
+header {
+    background: white;
+    box-shadow: 0 2px 10px #00000010;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 15px 6%;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: #e60023;
+    white-space: nowrap;
+}
+
+.search-box {
+    flex: 1;
+    position: relative;
+}
+
+.search-box input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: #f1f1f1;
+    padding: 14px 45px 14px 20px;
+    border-radius: 10px;
+}
+
+.search-box i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #e60023;
+}
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.header-actions button {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.header-actions i {
+    color: #e60023;
+}
+
+.cart-button {
+    position: relative;
+}
+
+#cart-count {
+    background: #e60023;
+    color: white;
+    border-radius: 50%;
+    padding: 3px 7px;
+}
+
+/* =========================
+   منو
+========================= */
+
+nav {
+    display: flex;
+    gap: 25px;
+    padding: 15px 6%;
+    border-top: 1px solid #eee;
+}
+
+nav a {
+    color: #333;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #e60023;
+}
+
+nav i {
+    color: #e60023;
+    margin-left: 5px;
+}
+
+/* =========================
+   بنر
+========================= */
+
+.hero {
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    padding: 40px 10%;
+    background:
+        linear-gradient(
+            120deg,
+            #111,
+            #333
+        );
+    color: white;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    line-height: 1.7;
+}
+
+.hero p {
+    font-size: 20px;
+    line-height: 2;
+}
+
+.hero a {
+    display: inline-block;
+    background: #e60023;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 10px;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.hero a:hover {
+    transform: translateY(-3px);
+}
+
+/* =========================
+   بخش‌ها
+========================= */
+
+.categories,
+.products-section,
+.about {
+    padding: 70px 6%;
+}
+
+.categories h2,
+.products-section h2,
+.about h2 {
+    margin-bottom: 30px;
+}
+
+/* =========================
+   دسته‌بندی
+========================= */
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.category {
+    background: white;
+    text-align: center;
+    padding: 30px 10px;
+    border-radius: 15px;
+    color: #222;
+    transition: 0.3s;
+    box-shadow: 0 5px 20px #00000008;
+}
+
+.category:hover {
+    transform: translateY(-5px);
+}
+
+.category i {
+    font-size: 40px;
+}
+
+.icon-red {
+    color: #e60023;
+}
+
+/* =========================
+   عنوان بخش
+========================= */
+
+.section-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.section-title a {
+    color: #e60023;
+}
+
+/* =========================
+   محصولات
+========================= */
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px #00000010;
+}
+
+.product-image {
+    position: relative;
+}
+
+.product-image img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.discount {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #e60023;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 7px;
+}
+
+.product-card h3 {
+    font-size: 15px;
+    line-height: 1.8;
+    min-height: 50px;
+}
+
+.product-price {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 15px 0;
+}
+
+.old-price {
+    color: #999;
+    text-decoration: line-through;
+}
+
+.product-price strong {
+    color: #222;
+}
+
+.add-to-cart {
+    width: 100%;
+    border: none;
+    background: #e60023;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.add-to-cart i {
+    margin-left: 5px;
+}
+
+/* =========================
+   مزایا
+========================= */
+
+.about {
+    background: white;
+    text-align: center;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+}
+
+.feature {
+    min-width: 150px;
+}
+
+.feature i {
+    font-size: 40px;
+    color: #e60023;
+}
+
+.feature h3 {
+    font-size: 16px;
+}
+
+/* =========================
+   فوتر
+========================= */
+
+footer {
+    text-align: center;
+    background: #222;
+    color: white;
+    padding: 40px 20px;
+}
+
+.footer-logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #e60023;
+}
+
+/* =========================
+   موبایل
+========================= */
+
+@media (max-width: 800px) {
+
+    .header-top {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .search-box {
+        order: 3;
+        flex-basis: 100%;
+    }
+
+    .header-actions button {
+        padding: 10px;
+    }
+
+    nav {
+        overflow-x: auto;
+        white-space: nowrap;
+        gap: 20px;
+    }
+
+    .hero {
+        min-height: 380px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .categories,
+    .products-section,
+    .about {
+        padding: 45px 4%;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .product-card {
+        padding: 10px;
+    }
+
+    .product-card h3 {
+        font-size: 13px;
+    }
+
+    .add-to-cart {
+        font-size: 12px;
+        padding: 10px 5px;
+    }
+
+    .features {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
