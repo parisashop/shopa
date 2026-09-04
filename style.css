@@ -428,3 +428,108 @@ footer {
         gap: 30px;
     }
 }
+/* =========================
+   کنسول داخل سایت
+========================= */
+
+#site-console {
+    width: 100%;
+    max-width: 650px;
+
+    margin: 20px auto;
+
+    background: #111;
+
+    border: 1px solid #333;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    direction: rtl;
+
+    font-family:
+        monospace;
+}
+
+.console-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 12px 15px;
+
+    background: #1e1e1e;
+
+    color: white;
+
+    border-bottom:
+        1px solid #333;
+}
+
+.console-header i {
+    color: #e60023;
+
+    margin-left: 8px;
+}
+
+.console-header button {
+    border: none;
+
+    background: #333;
+
+    color: white;
+
+    padding: 6px 12px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+#console-output {
+    min-height: 180px;
+    max-height: 400px;
+
+    overflow-y: auto;
+
+    padding: 10px;
+
+    direction: rtl;
+
+    text-align: right;
+}
+
+.console-line {
+    padding: 6px 8px;
+
+    margin-bottom: 5px;
+
+    border-radius: 5px;
+
+    white-space: pre-wrap;
+
+    word-break: break-word;
+
+    font-size: 12px;
+}
+
+.console-line.log {
+    color: #00ff88;
+
+    background: #00ff8808;
+}
+
+.console-line.error {
+    color: #ff4d4d;
+
+    background: #ff000010;
+}
+
+.console-line.warning {
+    color: #ffd43b;
+
+    background: #ffd43b10;
+}
