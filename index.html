@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>فروشگاه آنلاین</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- هدر -->
+    <header>
+
+        <div class="header-top">
+
+            <!-- لوگو -->
+            <a href="#" class="logo">
+                فروشگاه
+            </a>
+
+            <!-- جستجو -->
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    placeholder="جستجو در محصولات..."
+                >
+
+            </div>
+
+            <!-- دکمه‌ها -->
+            <div class="header-actions">
+
+                <button>
+                    <i class="fa-solid fa-user"></i>
+                    ورود | ثبت‌نام
+                </button>
+
+                <button class="cart-button">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    سبد خرید
+
+                    <span id="cart-count">
+                        ۰
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- منو -->
+        <nav>
+
+            <a href="#">
+                <i class="fa-solid fa-house"></i>
+                خانه
+            </a>
+
+            <a href="#products">
+                <i class="fa-solid fa-box"></i>
+                محصولات
+            </a>
+
+            <a href="#categories">
+                <i class="fa-solid fa-layer-group"></i>
+                دسته‌بندی‌ها
+            </a>
+
+            <a href="#about">
+                <i class="fa-solid fa-circle-info"></i>
+                درباره ما
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- بنر اصلی -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                بهترین محصولات با بهترین قیمت
+            </h1>
+
+            <p>
+                خرید آسان، سریع و مطمئن از فروشگاه ما
+            </p>
+
+            <a href="#products">
+
+                مشاهده محصولات
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- دسته‌بندی -->
+    <section
+        class="categories"
+        id="categories"
+    >
+
+        <h2>
+            دسته‌بندی محصولات
+        </h2>
+
+
+        <div class="category-grid">
+
+
+            <a href="#" class="category">
+
+                <i class="fa-solid fa-mobile-screen icon-red"></i>
+
+                <h3>
+                    موبایل
+                </h3>
+
+            </a>
+
+
+            <a href="#" class="category">
+
+                <i class="fa-solid fa-laptop icon-red"></i>
+
+                <h3>
+                    لپ‌تاپ
+                </h3>
+
+            </a>
+
+
+            <a href="#" class="category">
+
+                <i class="fa-solid fa-headphones icon-red"></i>
+
+                <h3>
+                    هدفون
+                </h3>
+
+            </a>
+
+
+            <a href="#" class="category">
+
+                <i class="fa-solid fa-clock icon-red"></i>
+
+                <h3>
+                    ساعت
+                </h3>
+
+            </a>
+
+
+            <a href="#" class="category">
+
+                <i class="fa-solid fa-camera icon-red"></i>
+
+                <h3>
+                    دوربین
+                </h3>
+
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- محصولات -->
+    <section
+        class="products-section"
+        id="products"
+    >
+
+        <div class="section-title">
+
+            <h2>
+                جدیدترین محصولات
+            </h2>
+
+            <a href="#">
+                مشاهده همه
+            </a>
+
+        </div>
+
+
+        <div class="products-grid">
+
+
+            <!-- محصول ۱ -->
+            <article class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="https://picsum.photos/400/400?1"
+                        alt="محصول نمونه"
+                    >
+
+                    <span class="discount">
+                        ۱۰٪
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    محصول نمونه شماره یک
+                </h3>
+
+
+                <div class="product-price">
+
+                    <span class="old-price">
+                        ۱٬۰۰۰٬۰۰۰ تومان
+                    </span>
+
+                    <strong>
+                        ۹۰۰٬۰۰۰ تومان
+                    </strong>
+
+                </div>
+
+
+                <button
+                    class="add-to-cart"
+                    onclick="addToCart()"
+                >
+
+                    <i class="fa-solid fa-cart-plus"></i>
+
+                    افزودن به سبد خرید
+
+                </button>
+
+            </article>
+
+
+            <!-- محصول ۲ -->
+            <article class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="https://picsum.photos/400/400?2"
+                        alt="محصول نمونه"
+                    >
+
+                </div>
+
+
+                <h3>
+                    محصول نمونه شماره دو
+                </h3>
+
+
+                <div class="product-price">
+
+                    <strong>
+                        ۱٬۵۰۰٬۰۰۰ تومان
+                    </strong>
+
+                </div>
+
+
+                <button
+                    class="add-to-cart"
+                    onclick="addToCart()"
+                >
+
+                    <i class="fa-solid fa-cart-plus"></i>
+
+                    افزودن به سبد خرید
+
+                </button>
+
+            </article>
+
+
+            <!-- محصول ۳ -->
+            <article class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="https://picsum.photos/400/400?3"
+                        alt="محصول نمونه"
+                    >
+
+                </div>
+
+
+                <h3>
+                    محصول نمونه شماره سه
+                </h3>
+
+
+                <div class="product-price">
+
+                    <strong>
+                        ۲٬۲۰۰٬۰۰۰ تومان
+                    </strong>
+
+                </div>
+
+
+                <button
+                    class="add-to-cart"
+                    onclick="addToCart()"
+                >
+
+                    <i class="fa-solid fa-cart-plus"></i>
+
+                    افزودن به سبد خرید
+
+                </button>
+
+            </article>
+
+
+            <!-- محصول ۴ -->
+            <article class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="https://picsum.photos/400/400?4"
+                        alt="محصول نمونه"
+                    >
+
+                </div>
+
+
+                <h3>
+                    محصول نمونه شماره چهار
+                </h3>
+
+
+                <div class="product-price">
+
+                    <strong>
+                        ۸۵۰٬۰۰۰ تومان
+                    </strong>
+
+                </div>
+
+
+                <button
+                    class="add-to-cart"
+                    onclick="addToCart()"
+                >
+
+                    <i class="fa-solid fa-cart-plus"></i>
+
+                    افزودن به سبد خرید
+
+                </button>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- مزایا -->
+    <section
+        class="about"
+        id="about"
+    >
+
+        <h2>
+            چرا فروشگاه ما؟
+        </h2>
+
+
+        <div class="features">
+
+
+            <div class="feature">
+
+                <i class="fa-solid fa-truck-fast"></i>
+
+                <h3>
+                    ارسال سریع
+                </h3>
+
+            </div>
+
+
+            <div class="feature">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <h3>
+                    خرید امن
+                </h3>
+
+            </div>
+
+
+            <div class="feature">
+
+                <i class="fa-solid fa-star"></i>
+
+                <h3>
+                    کیفیت عالی
+                </h3>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- فوتر -->
+    <footer>
+
+        <div class="footer-logo">
+
+            فروشگاه
+
+        </div>
+
+        <p>
+            © تمامی حقوق برای فروشگاه محفوظ است
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
