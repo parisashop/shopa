@@ -18,7 +18,10 @@
 
 <body>
 
-    <!-- هدر -->
+    <!-- =========================
+         هدر
+    ========================== -->
+
     <header>
 
         <div class="header-top">
@@ -35,7 +38,9 @@
 
                 <input
                     type="text"
+                    id="search-input"
                     placeholder="جستجو در محصولات..."
+                    autocomplete="off"
                 >
 
             </div>
@@ -43,12 +48,19 @@
             <!-- دکمه‌ها -->
             <div class="header-actions">
 
-                <button>
+                <button type="button" id="login-button">
+
                     <i class="fa-solid fa-user"></i>
+
                     ورود | ثبت‌نام
+
                 </button>
 
-                <button class="cart-button">
+                <button
+                    type="button"
+                    class="cart-button"
+                    id="cart-button"
+                >
 
                     <i class="fa-solid fa-cart-shopping"></i>
 
@@ -66,26 +78,42 @@
 
 
         <!-- منو -->
+
         <nav>
 
             <a href="#">
+
                 <i class="fa-solid fa-house"></i>
+
                 خانه
+
             </a>
+
 
             <a href="#products">
+
                 <i class="fa-solid fa-box"></i>
+
                 محصولات
+
             </a>
+
 
             <a href="#categories">
+
                 <i class="fa-solid fa-layer-group"></i>
+
                 دسته‌بندی‌ها
+
             </a>
 
+
             <a href="#about">
+
                 <i class="fa-solid fa-circle-info"></i>
+
                 درباره ما
+
             </a>
 
         </nav>
@@ -93,7 +121,10 @@
     </header>
 
 
-    <!-- بنر اصلی -->
+    <!-- =========================
+         بنر اصلی
+    ========================== -->
+
     <section class="hero">
 
         <div class="hero-content">
@@ -119,7 +150,10 @@
     </section>
 
 
-    <!-- دسته‌بندی -->
+    <!-- =========================
+         دسته‌بندی
+    ========================== -->
+
     <section
         class="categories"
         id="categories"
@@ -132,8 +166,9 @@
 
         <div class="category-grid">
 
-
-            <a href="#" class="category">
+            <a href="#products"
+               class="category"
+               data-category="موبایل">
 
                 <i class="fa-solid fa-mobile-screen icon-red"></i>
 
@@ -144,7 +179,9 @@
             </a>
 
 
-            <a href="#" class="category">
+            <a href="#products"
+               class="category"
+               data-category="لپ‌تاپ">
 
                 <i class="fa-solid fa-laptop icon-red"></i>
 
@@ -155,7 +192,9 @@
             </a>
 
 
-            <a href="#" class="category">
+            <a href="#products"
+               class="category"
+               data-category="هدفون">
 
                 <i class="fa-solid fa-headphones icon-red"></i>
 
@@ -166,7 +205,9 @@
             </a>
 
 
-            <a href="#" class="category">
+            <a href="#products"
+               class="category"
+               data-category="ساعت">
 
                 <i class="fa-solid fa-clock icon-red"></i>
 
@@ -177,7 +218,9 @@
             </a>
 
 
-            <a href="#" class="category">
+            <a href="#products"
+               class="category"
+               data-category="دوربین">
 
                 <i class="fa-solid fa-camera icon-red"></i>
 
@@ -187,13 +230,15 @@
 
             </a>
 
-
         </div>
 
     </section>
 
 
-    <!-- محصولات -->
+    <!-- =========================
+         محصولات
+    ========================== -->
+
     <section
         class="products-section"
         id="products"
@@ -205,194 +250,67 @@
                 جدیدترین محصولات
             </h2>
 
-            <a href="#">
+            <a href="#products" id="show-all-products">
                 مشاهده همه
             </a>
 
         </div>
 
 
-        <div class="products-grid">
+        <!-- وضعیت بارگذاری -->
 
+        <div id="products-loading">
 
-            <!-- محصول ۱ -->
-            <article class="product-card">
+            <i class="fa-solid fa-spinner fa-spin"></i>
 
-                <div class="product-image">
+            در حال دریافت محصولات...
 
-                    <img
-                        src="https://picsum.photos/400/400?1"
-                        alt="محصول نمونه"
-                    >
+        </div>
 
-                    <span class="discount">
-                        ۱۰٪
-                    </span>
 
-                </div>
+        <!-- پیام خطا -->
 
+        <div id="products-error"
+             style="display:none;">
 
-                <h3>
-                    محصول نمونه شماره یک
-                </h3>
+            <i class="fa-solid fa-triangle-exclamation"></i>
 
+            دریافت محصولات با خطا مواجه شد.
 
-                <div class="product-price">
+        </div>
 
-                    <span class="old-price">
-                        ۱٬۰۰۰٬۰۰۰ تومان
-                    </span>
 
-                    <strong>
-                        ۹۰۰٬۰۰۰ تومان
-                    </strong>
+        <!-- محصولات واقعی -->
 
-                </div>
+        <div
+            class="products-grid"
+            id="products-grid"
+        >
+        </div>
 
 
-                <button
-                    class="add-to-cart"
-                    onclick="addToCart()"
-                >
+        <!-- وقتی محصولی وجود ندارد -->
 
-                    <i class="fa-solid fa-cart-plus"></i>
+        <div
+            id="no-products"
+            style="display:none;"
+        >
 
-                    افزودن به سبد خرید
+            <i class="fa-solid fa-box-open"></i>
 
-                </button>
-
-            </article>
-
-
-            <!-- محصول ۲ -->
-            <article class="product-card">
-
-                <div class="product-image">
-
-                    <img
-                        src="https://picsum.photos/400/400?2"
-                        alt="محصول نمونه"
-                    >
-
-                </div>
-
-
-                <h3>
-                    محصول نمونه شماره دو
-                </h3>
-
-
-                <div class="product-price">
-
-                    <strong>
-                        ۱٬۵۰۰٬۰۰۰ تومان
-                    </strong>
-
-                </div>
-
-
-                <button
-                    class="add-to-cart"
-                    onclick="addToCart()"
-                >
-
-                    <i class="fa-solid fa-cart-plus"></i>
-
-                    افزودن به سبد خرید
-
-                </button>
-
-            </article>
-
-
-            <!-- محصول ۳ -->
-            <article class="product-card">
-
-                <div class="product-image">
-
-                    <img
-                        src="https://picsum.photos/400/400?3"
-                        alt="محصول نمونه"
-                    >
-
-                </div>
-
-
-                <h3>
-                    محصول نمونه شماره سه
-                </h3>
-
-
-                <div class="product-price">
-
-                    <strong>
-                        ۲٬۲۰۰٬۰۰۰ تومان
-                    </strong>
-
-                </div>
-
-
-                <button
-                    class="add-to-cart"
-                    onclick="addToCart()"
-                >
-
-                    <i class="fa-solid fa-cart-plus"></i>
-
-                    افزودن به سبد خرید
-
-                </button>
-
-            </article>
-
-
-            <!-- محصول ۴ -->
-            <article class="product-card">
-
-                <div class="product-image">
-
-                    <img
-                        src="https://picsum.photos/400/400?4"
-                        alt="محصول نمونه"
-                    >
-
-                </div>
-
-
-                <h3>
-                    محصول نمونه شماره چهار
-                </h3>
-
-
-                <div class="product-price">
-
-                    <strong>
-                        ۸۵۰٬۰۰۰ تومان
-                    </strong>
-
-                </div>
-
-
-                <button
-                    class="add-to-cart"
-                    onclick="addToCart()"
-                >
-
-                    <i class="fa-solid fa-cart-plus"></i>
-
-                    افزودن به سبد خرید
-
-                </button>
-
-            </article>
-
+            <p>
+                هنوز محصولی ثبت نشده است.
+            </p>
 
         </div>
 
     </section>
 
 
-    <!-- مزایا -->
+    <!-- =========================
+         مزایا
+    ========================== -->
+
     <section
         class="about"
         id="about"
@@ -404,7 +322,6 @@
 
 
         <div class="features">
-
 
             <div class="feature">
 
@@ -438,19 +355,19 @@
 
             </div>
 
-
         </div>
 
     </section>
 
 
-    <!-- فوتر -->
+    <!-- =========================
+         فوتر
+    ========================== -->
+
     <footer>
 
         <div class="footer-logo">
-
             فروشگاه
-
         </div>
 
         <p>
@@ -459,6 +376,39 @@
 
     </footer>
 
+
+    <!-- =========================
+         کنسول
+    ========================== -->
+
+    <div id="site-console">
+
+        <div class="console-header">
+
+            <span>
+                <i class="fa-solid fa-terminal"></i>
+                کنسول سایت
+            </span>
+
+            <button
+                type="button"
+                onclick="clearConsole()"
+            >
+                پاک کردن
+            </button>
+
+        </div>
+
+        <div id="console-output"></div>
+
+    </div>
+
+
+    <!-- Supabase -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- اسکریپت اصلی -->
 
     <script src="script.js"></script>
 
